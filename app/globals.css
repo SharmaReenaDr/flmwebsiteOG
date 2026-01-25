@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f2ed 20%, #efeae3 40%, #ebe6dd 50%, #e6e0d7 60%, #f0ebe2 80%, #faf9f7 100%);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1c1a17;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f2ed 20%, #efeae3 40%, #ebe6dd 50%, #e6e0d7 60%, #f0ebe2 80%, #faf9f7 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 600px 400px at 15% 30%, rgba(72, 180, 165, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 500px 350px at 85% 15%, rgba(201, 162, 95, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 550px 380px at 50% 85%, rgba(120, 190, 170, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse 450px 300px at 20% 70%, rgba(201, 162, 95, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 400px 280px at 75% 60%, rgba(72, 180, 165, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+* {
+  position: relative;
+  z-index: 1;
+}
+
+body > * {
+  position: relative;
+  z-index: auto;
+}
+
+.gradient-shell {
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f2ed 20%, #efeae3 40%, #ebe6dd 50%, #e6e0d7 60%, #f0ebe2 80%, #faf9f7 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.gradient-shell::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 600px 400px at 15% 30%, rgba(72, 180, 165, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 500px 350px at 85% 15%, rgba(201, 162, 95, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 550px 380px at 50% 85%, rgba(120, 190, 170, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse 450px 300px at 20% 70%, rgba(201, 162, 95, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 400px 280px at 75% 60%, rgba(72, 180, 165, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-card {
+  background: rgba(255, 255, 255, 0.87);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(72, 180, 165, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-card:hover {
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.07), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  border-color: rgba(72, 180, 165, 0.35);
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: linear-gradient(120deg, #48b4a5 0%, #3a8f7f 100%);
+  color: #ffffff;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 12px 32px rgba(72, 180, 165, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(72, 180, 165, 0.35);
+  background: linear-gradient(120deg, #52c2b3 0%, #449d8d 100%);
+}
+
+.button-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 24px rgba(72, 180, 165, 0.25);
+}
+
+.button-ghost {
+  border: 1.5px solid rgba(72, 180, 165, 0.25);
+  color: #1c1a17;
+  background: rgba(255, 255, 255, 0.75);
+  transition: all 200ms ease;
+  font-weight: 500;
+}
+
+.button-ghost:hover {
+  border-color: rgba(72, 180, 165, 0.45);
+  background: rgba(255, 255, 255, 0.95);
+  color: #48b4a5;
+}
+
+.badge-soft {
+  color: #48b4a5;
+  border: 1.5px solid rgba(72, 180, 165, 0.35);
+  background: rgba(72, 180, 165, 0.12);
+  font-weight: 500;
+}
+
+.section-heading {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #48b4a5;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.footer-link {
+  color: #888;
+  transition: all 200ms ease;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+  color: #48b4a5;
+  text-decoration: underline;
+}
