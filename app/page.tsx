@@ -8,11 +8,11 @@ export default function HomePage() {
           <span className="badge-soft rounded-full px-3 py-1 text-xs tracking-wide">Founder-led • Conscious • Global</span>
         </div>
         <div className="space-y-4">
-          <h1 className="text-5xl md:text-6xl font-bold font-display text-ink-900 leading-tight">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display text-white leading-[0.95] tracking-tight">
             Fitness Life Mantra
           </h1>
-          <p className="text-xl text-gold-500 font-semibold">Conscious Wellness • Movement • Purpose</p>
-          <p className="text-lg text-ink-500 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-accent font-semibold tracking-wide">Conscious Wellness • Movement • Purpose</p>
+          <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             Integrate fitness, spirituality, creative expression, and wellness into a single conscious lifestyle platform. Founded by Dr. Reena Sharma.
           </p>
         </div>
@@ -39,11 +39,11 @@ export default function HomePage() {
           <Link
             key={item.title}
             href={item.href}
-            className="section-card rounded-2xl p-6 text-center hover:shadow-glow transition space-y-3"
+            className="section-card rounded-2xl p-6 text-center hover:shadow-glow transition space-y-3 group"
           >
-            <div className="text-3xl">{item.icon}</div>
-            <h3 className="font-semibold text-ink-900">{item.title}</h3>
-            <p className="text-xs text-ink-500">{item.desc}</p>
+            <div className="text-3xl transform group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+            <h3 className="font-semibold text-white">{item.title}</h3>
+            <p className="text-xs text-muted">{item.desc}</p>
           </Link>
         ))}
       </section>
@@ -51,15 +51,15 @@ export default function HomePage() {
       <section className="section-card rounded-3xl p-8 md:p-12 space-y-8">
         <div className="text-center space-y-3">
           <p className="section-heading">What is FLM?</p>
-          <h2 className="text-3xl font-semibold text-ink-900">A Modern Conscious Lifestyle Platform</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">A Modern Conscious Lifestyle Platform</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-ink-900">For Wellness Seekers</h3>
-            <p className="text-ink-500 leading-relaxed">
+            <h3 className="text-lg font-semibold text-white">For Wellness Seekers</h3>
+            <p className="text-muted leading-relaxed">
               Move your body. Calm your mind. Express your creativity. Connect with community. Everything you need to live consciously—in one place.
             </p>
-            <ul className="space-y-2 text-sm text-ink-600">
+            <ul className="space-y-2 text-sm text-muted">
               <li>✓ Clear service categories</li>
               <li>✓ Fast, easy booking</li>
               <li>✓ Founder-led experience</li>
@@ -67,11 +67,11 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-ink-900">Why Now?</h3>
-            <p className="text-ink-500 leading-relaxed">
+            <h3 className="text-lg font-semibold text-white">Why Now?</h3>
+            <p className="text-muted leading-relaxed">
               People expect authenticity, clarity, and integration. FLM delivers all three—modern UX, founder credibility, and a modular platform built to scale.
             </p>
-            <ul className="space-y-2 text-sm text-ink-600">
+            <ul className="space-y-2 text-sm text-muted">
               <li>✓ Proven modern design patterns</li>
               <li>✓ Investor-ready positioning</li>
               <li>✓ Franchise-ready structure</li>
@@ -84,7 +84,7 @@ export default function HomePage() {
       <section className="space-y-6">
         <div className="text-center space-y-3">
           <p className="section-heading">Our Offerings</p>
-          <h2 className="text-3xl font-semibold text-ink-900">Four Pillars of Conscious Living</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">Four Pillars of Conscious Living</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {[
@@ -112,11 +112,11 @@ export default function HomePage() {
             <Link
               key={offering.title}
               href={offering.link}
-              className="section-card rounded-3xl p-6 space-y-3 hover:shadow-glow transition"
+              className="section-card rounded-3xl p-6 space-y-3 hover:shadow-glow transition group"
             >
-              <h3 className="text-lg font-semibold text-ink-900">{offering.title}</h3>
-              <p className="text-ink-500 text-sm">{offering.desc}</p>
-              <span className="text-gold-500 text-xs font-semibold">Learn more →</span>
+              <h3 className="text-lg font-semibold text-white">{offering.title}</h3>
+              <p className="text-muted text-sm">{offering.desc}</p>
+              <span className="text-accent text-xs font-semibold group-hover:translate-x-1 inline-block transition-transform">Learn more →</span>
             </Link>
           ))}
         </div>
@@ -125,27 +125,27 @@ export default function HomePage() {
       <section className="section-card rounded-3xl p-8 md:p-12 space-y-8">
         <div className="space-y-3">
           <p className="section-heading">Founder</p>
-          <h2 className="text-3xl font-semibold text-ink-900">Meet Dr. Reena Sharma</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">Meet Dr. Reena Sharma</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <p className="text-ink-500 leading-relaxed">
+            <p className="text-muted leading-relaxed">
               Dr. Reena Sharma is a founder, wellness educator, clinical researcher, and creative performer integrating movement science, spiritual practice, and artistic expression.
             </p>
-            <ul className="space-y-2 text-sm text-ink-600">
-              <li><strong>Background:</strong> Movement science, clinical research, spirituality, theatre & performance</li>
-              <li><strong>Expertise:</strong> Founder-led wellness, conscious living, performance coaching</li>
-              <li><strong>Global:</strong> USA & India</li>
+            <ul className="space-y-2 text-sm text-muted">
+              <li><strong className="text-white">Background:</strong> Movement science, clinical research, spirituality, theatre & performance</li>
+              <li><strong className="text-white">Expertise:</strong> Founder-led wellness, conscious living, performance coaching</li>
+              <li><strong className="text-white">Global:</strong> USA & India</li>
             </ul>
             <Link
               href="/about"
-              className="text-gold-500 text-sm font-semibold underline underline-offset-4 hover:text-gold-400"
+              className="text-accent text-sm font-semibold underline underline-offset-4 hover:text-accent-strong inline-block"
             >
               Full bio and mission →
             </Link>
           </div>
-          <div className="bg-gold-400/10 rounded-2xl border border-gold-400/25 p-6 text-center space-y-3">
-            <p className="text-sm text-ink-700">
+          <div className="bg-accent/10 rounded-2xl border border-accent/25 p-6 text-center space-y-3">
+            <p className="text-sm text-muted">
               Every service, every spiritual offering, every creative collaboration flows from Dr. Reena's lived experience and expertise.
             </p>
             <Link
@@ -158,16 +158,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-gold-400/10 rounded-3xl border border-gold-400/25 p-8 md:p-12 space-y-6">
+      <section className="bg-accent/10 rounded-3xl border border-accent/25 p-8 md:p-12 space-y-6">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl font-semibold text-ink-900">Join the FLM Community</h2>
-          <p className="text-ink-500">Get updates, exclusive content, and event invitations.</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">Join the FLM Community</h2>
+          <p className="text-muted">Get updates, exclusive content, and event invitations.</p>
         </div>
         <div className="flex gap-3 justify-center max-w-md mx-auto">
           <input
             type="email"
             placeholder="your@email.com"
-            className="flex-1 rounded-full border border-amber-100 px-4 py-3 bg-white/80 focus:outline-none focus:ring-2 focus:ring-gold-400"
+            className="flex-1 rounded-full border border-white/20 px-4 py-3 bg-white/5 text-white placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
           />
           <button className="button-primary px-6 py-3 rounded-full font-semibold">
             Subscribe
@@ -176,8 +176,8 @@ export default function HomePage() {
       </section>
 
       <div className="text-center space-y-6">
-        <h2 className="text-3xl font-semibold text-ink-900">Ready to Start?</h2>
-        <p className="text-ink-500 text-lg max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-semibold text-white">Ready to Start?</h2>
+        <p className="text-muted text-lg max-w-2xl mx-auto">
           Choose a service, register, and begin your FLM journey. Fast booking, clear pricing, instant confirmation.
         </p>
         <div className="flex gap-3 justify-center flex-wrap">

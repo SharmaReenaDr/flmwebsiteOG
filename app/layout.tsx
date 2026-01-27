@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import BackgroundShell from "./components/BackgroundShell";
+import SmoothScroll from "./components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Fitness Life Mantra | Conscious Wellness Platform",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 function Footer() {
   return (
-    <footer className="bg-ink-900 text-white py-12">
+    <footer className="bg-black/40 backdrop-blur-md border-t border-white/10 text-white py-12">
       <div className="max-w-6xl mx-auto px-4 space-y-6">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-2">
@@ -57,6 +58,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <BackgroundShell>
+          <SmoothScroll />
           <Navigation />
           {children}
           <Footer />
