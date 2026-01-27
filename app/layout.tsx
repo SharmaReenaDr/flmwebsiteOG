@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import BackgroundShell from "./components/BackgroundShell";
 
 export const metadata: Metadata = {
   title: "Fitness Life Mantra | Conscious Wellness Platform",
@@ -35,7 +36,7 @@ function Footer() {
           </div>
           <div className="space-y-2">
             <p className="text-sm font-semibold uppercase">Contact</p>
-            <p className="text-xs text-gray-300">hello@fitnesslifemantra.com</p>
+            <p className="text-xs text-gray-300">fitnesslifemantra@gmail.com</p>
             <p className="text-xs text-gray-300">Global • USA & India</p>
           </div>
         </div>
@@ -54,10 +55,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="gradient-shell">
-        <Navigation />
-        {children}
-        <Footer />
+      <body>
+        <BackgroundShell>
+          <Navigation />
+          {children}
+          <Footer />
+        </BackgroundShell>
       </body>
     </html>
   );
