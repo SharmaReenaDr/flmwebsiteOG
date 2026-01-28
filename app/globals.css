@@ -41,7 +41,53 @@ body {
   color: #eaf6ff;
 }
 
-/* FULL PAGE 3D BACKGROUND WRAPPER */
+/* ANIMATION KEYFRAMES */
+@keyframes mantra-flow {
+  0% {
+    transform: translateY(100vh) scaleY(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-100vh) scaleY(1);
+    opacity: 0;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.05;
+  }
+  25% {
+    transform: translateY(-40px) translateX(20px);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-60px) translateX(0px);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translateY(-40px) translateX(-20px);
+    opacity: 0.15;
+  }
+}
+
+.animate-mantra-flow {
+  animation: mantra-flow 12s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
 .bg-shell {
   min-height: 100vh;
   position: relative;
