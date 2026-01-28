@@ -46,7 +46,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background: var(--bg1);
+  background: #000000;
   color: var(--text);
   isolation: isolate;
 }
@@ -61,48 +61,84 @@ body {
   z-index: 0;
 }
 
-.bg-hero-layer {
-  background-image: var(--hero-image);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(0.8) contrast(0.9) grayscale(0.3);
-  opacity: 0.12;
+/* Base black layer */
+.bg-base-layer {
+  background: #000000;
+  z-index: 0;
 }
 
-.bg-grid-layer {
-  background-image:
-    linear-gradient(transparent 98%, rgba(255, 79, 54, 0.04) 100%),
-    linear-gradient(90deg, transparent 98%, rgba(255, 79, 54, 0.04) 100%);
-  background-size: 180px 180px, 180px 180px;
-  mix-blend-mode: screen;
-  opacity: 0.15;
+/* Nataraj background - centered, low opacity */
+.bg-nataraj-layer {
+  background-image: url("/nataraj.svg");
+  background-size: 600px 600px;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.08;
+  filter: blur(2px);
+  z-index: 1;
+}
+
+/* Animated flowing water effect */
+.bg-water-layer {
+  background: 
+    linear-gradient(180deg, rgba(30, 60, 120, 0.15) 0%, rgba(20, 40, 80, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%),
+    radial-gradient(ellipse 2000px 1200px at 50% -200px, rgba(60, 140, 220, 0.12), transparent 70%);
+  animation: flowingWater 28s ease-in-out infinite;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: 2;
+}
+
+/* Enhanced water animation */
+@keyframes flowingWater {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    background-position: 0% 0%, 0% 0%;
+  }
+  25% {
+    transform: translateY(-30px) translateX(15px);
+    background-position: 5% 5%, 3% 2%;
+  }
+  50% {
+    transform: translateY(-50px) translateX(0px);
+    background-position: 10% 10%, 8% 5%;
+  }
+  75% {
+    transform: translateY(-30px) translateX(-15px);
+    background-position: 5% 5%, 3% 2%;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    background-position: 0% 0%, 0% 0%;
+  }
 }
 
 .bg-glow-layer {
   background:
-    radial-gradient(1000px 600px at 50% 20%, rgba(255, 79, 54, 0.08), transparent 70%),
-    radial-gradient(800px 500px at 80% 50%, rgba(255, 255, 255, 0.02), transparent 60%);
-  filter: blur(80px);
-  opacity: 0.6;
+    radial-gradient(1000px 600px at 50% 20%, rgba(100, 150, 220, 0.06), transparent 70%),
+    radial-gradient(800px 500px at 80% 50%, rgba(255, 255, 255, 0.01), transparent 60%);
+  filter: blur(100px);
+  opacity: 0.4;
+  z-index: 3;
 }
 
 .bg-vignette {
-  background: radial-gradient(110% 110% at 50% 40%, transparent 40%, rgba(0, 0, 0, 0.85) 90%);
-  z-index: 1;
+  background: radial-gradient(110% 110% at 50% 40%, transparent 30%, rgba(0, 0, 0, 0.9) 100%);
+  z-index: 4;
 }
 
 .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
   background-size: 180px 180px;
   mix-blend-mode: overlay;
-  opacity: 0.18;
-  z-index: 2;
+  opacity: 0.1;
+  z-index: 5;
 }
 
 .page-shell {
   position: relative;
-  z-index: 3;
+  z-index: 10;
 }
 
 .section-card,

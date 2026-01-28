@@ -37,8 +37,9 @@ export default function BackgroundShell({ children }: BackgroundShellProps) {
         "--tiltY": `${tilt.y}px`,
       } as CSSProperties}
     >
-      <div className="bg-layer bg-hero-layer" />
-      <div className="bg-layer bg-grid-layer" />
+      <div className="bg-layer bg-base-layer" />
+      <div className="bg-layer bg-nataraj-layer" />
+      <div className="bg-layer bg-water-layer" />
       <div className="bg-layer bg-glow-layer" />
       <div className="bg-layer bg-vignette" />
       <div className="bg-layer bg-noise" />

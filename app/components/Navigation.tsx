@@ -11,20 +11,20 @@ export default function Navigation() {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Spirituality", href: "/spirituality" },
+    { label: "Dance & Fitness", href: "/dance-fitness" },
     { label: "Acting & Theatre", href: "/acting-theatre" },
+    { label: "Spirituality", href: "/spirituality" },
+    { label: "Community & Events", href: "/community-events" },
     { label: "Products", href: "/products" },
-    { label: "Community", href: "/community" },
-    { label: "About", href: "/about" },
+    { label: "Register / Book", href: "/register" },
   ];
 
   return (
     <nav className="nav-3d sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-100 transition-opacity duration-200">
+          {/* Logo - Left */}
+          <Link href="/" className="flex items-center gap-3 hover:opacity-100 transition-opacity duration-200 flex-shrink-0">
             <Image
               src="/FLM logo.png"
               alt="Fitness Life Mantra"
@@ -37,7 +37,7 @@ export default function Navigation() {
           </Link>
 
           {/* Centered Desktop Nav Pills */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-2">
+          <div className="hidden lg:flex items-center gap-1 flex-1 justify-center px-4">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
@@ -54,8 +54,8 @@ export default function Navigation() {
             })}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button - Right */}
+          <div className="hidden md:block flex-shrink-0">
             <Link
               href="/register"
               className="button-primary px-6 py-2.5 rounded-full text-sm font-semibold shadow-[0_12px_34px_rgba(52,183,255,0.35)]"
@@ -67,7 +67,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/5 transition-colors flex-shrink-0"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

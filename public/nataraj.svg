@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <!-- Define gradients -->
+  <defs>
+    <radialGradient id="natarajGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer glow circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <circle cx="100" cy="100" r="90" fill="url(#natarajGlow)" opacity="0.3"/>
+
+  <!-- Main body - simplified cosmic dancer form -->
+  <g filter="url(#glow)">
+    <!-- Head -->
+    <circle cx="100" cy="70" r="12" fill="rgba(255,255,255,0.6)"/>
+    
+    <!-- Halo effect -->
+    <circle cx="100" cy="70" r="16" fill="none" stroke="rgba(255,200,100,0.3)" stroke-width="1"/>
+    <circle cx="100" cy="70" r="20" fill="none" stroke="rgba(255,200,100,0.15)" stroke-width="1"/>
+
+    <!-- Upper body -->
+    <ellipse cx="100" cy="90" rx="8" ry="12" fill="rgba(255,255,255,0.5)"/>
+
+    <!-- Left arm (raised) -->
+    <path d="M 95 85 Q 70 60 60 40" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="60" cy="40" r="3" fill="rgba(255,255,255,0.6)"/>
+
+    <!-- Right arm (extended) -->
+    <path d="M 105 85 Q 130 75 150 70" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="150" cy="70" r="3" fill="rgba(255,255,255,0.6)"/>
+
+    <!-- Left leg (raised) -->
+    <path d="M 98 102 Q 85 115 80 140" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="80" cy="140" r="2.5" fill="rgba(255,255,255,0.5)"/>
+
+    <!-- Right leg (supporting) -->
+    <path d="M 102 102 L 105 135" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="105" cy="135" r="3" fill="rgba(255,255,255,0.6)"/>
+
+    <!-- Fire ring around cosmic dancer -->
+    <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(255,150,50,0.15)" stroke-width="4"/>
+  </g>
+
+  <!-- Decorative circles (spiritual energy) -->
+  <circle cx="100" cy="100" r="45" fill="none" stroke="rgba(100,200,255,0.1)" stroke-width="1" stroke-dasharray="5,5"/>
+  <circle cx="100" cy="100" r="55" fill="none" stroke="rgba(150,100,255,0.08)" stroke-width="1" stroke-dasharray="3,7"/>
+</svg>
