@@ -1,192 +1,200 @@
 import Link from "next/link";
 
 export default function HomePage() {
-  const consciousnessPillars = [
-    { icon: "🌟", level: "Ultimate", title: "Enlightenment", desc: "Complete Consciousness" },
-    { icon: "💫", level: "Wisdom", title: "Awakening", desc: "Higher Awareness" },
-    { icon: "✨", level: "Transformation", title: "Growth", desc: "Inner Evolution" },
-    { icon: "🔮", level: "Spirit", title: "Connection", desc: "Universal Energy" }
+  const pillars = [
+    { icon: "💃", title: "Dance & Fitness", color: "from-pink-500 to-red-500" },
+    { icon: "🎭", title: "Performing Arts", color: "from-purple-500 to-pink-500" },
+    { icon: "🧘", title: "Spirituality", color: "from-blue-500 to-cyan-500" },
+    { icon: "🤝", title: "Community", color: "from-green-500 to-blue-500" }
   ];
 
   return (
-    <main className="min-h-screen w-full flex flex-col relative overflow-hidden">
-      {/* OM MANTRA ANIMATED BACKGROUND */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 animate-mantra-flow text-center text-white/30 font-display text-9xl font-bold space-y-20 whitespace-nowrap">
-          <p className="animate-float-slow">ॐ OM</p>
-          <p className="animate-float-slow" style={{ animationDelay: "1s" }}>ॐ OM</p>
-          <p className="animate-float-slow" style={{ animationDelay: "2s" }}>ॐ OM</p>
-          <p className="animate-float-slow" style={{ animationDelay: "3s" }}>ॐ OM</p>
-          <p className="animate-float-slow" style={{ animationDelay: "4s" }}>ॐ OM</p>
+    <main className="w-full bg-black text-white snap-y snap-mandatory">
+      {/* FIXED NAVIGATION - TOP */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-4 py-4">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-cyan-400">FLM</h1>
+          <div className="flex gap-4 md:gap-8">
+            <Link href="/register" className="text-sm font-semibold hover:text-cyan-400 transition">Register</Link>
+            <Link href="/dance-fitness" className="text-sm font-semibold hover:text-cyan-400 transition">Gallery</Link>
+            <Link href="/products" className="text-sm font-semibold hover:text-cyan-400 transition">Products</Link>
+          </div>
         </div>
-      </div>
+      </nav>
 
-      {/* HERO SECTION - 100vh, no scroll */}
-      <section className="h-screen flex flex-col items-center justify-between py-12 md:py-16 px-4 relative z-10">
+      {/* ============ SECTION 1: HERO - 4 PILLARS ============ */}
+      <section className="h-screen w-full flex items-center justify-center relative overflow-hidden pt-20 px-4 snap-start">
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 via-black to-black opacity-50" />
         
-        {/* REVERSE PYRAMID - 4 CONSCIOUSNESS PILLARS AT TOP */}
-        <div className="w-full max-w-6xl mx-auto mt-8">
-          {/* Main Title */}
-          <div className="text-center space-y-2 mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight tracking-tight drop-shadow-2xl">
-              Fitness Life Mantra
+        {/* Content */}
+        <div className="relative z-10 text-center space-y-16 w-full">
+          <div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tighter">
+              Fitness Life<br />Mantra
             </h1>
-            <p className="text-xl md:text-2xl font-semibold text-cyan-300">Ultimate Consciousness Journey</p>
+            <p className="text-lg md:text-2xl text-cyan-300 font-light">Conscious Wellness. Movement. Spirit.</p>
           </div>
 
-          {/* REVERSE PYRAMID GRID */}
-          <div className="flex flex-col items-center gap-8">
-            {/* Level 1 - Top (4 pillars) */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {consciousnessPillars.map((pillar, idx) => (
-                <div 
-                  key={idx}
-                  className="group relative h-40 rounded-2xl overflow-hidden cursor-pointer backdrop-blur-md bg-white/5 border border-cyan-300/30 transition-all duration-500 hover:scale-110 hover:bg-white/10 hover:border-cyan-200/60"
-                >
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col items-center justify-center text-center p-4 space-y-2">
-                    <div className="text-5xl md:text-6xl animate-bounce" style={{ animationDelay: `${idx * 0.1}s` }}>
-                      {pillar.icon}
-                    </div>
-                    <p className="text-xs font-semibold text-cyan-300 uppercase tracking-widest">{pillar.level}</p>
-                    <h3 className="text-lg md:text-xl font-bold text-white">{pillar.title}</h3>
-                    <p className="text-xs text-white/70">{pillar.desc}</p>
-                  </div>
-                  
-                  {/* Border glow */}
-                  <div className="absolute inset-0 border-2 border-transparent rounded-2xl group-hover:border-cyan-400/50 transition-colors duration-500 opacity-0 group-hover:opacity-100" />
-                </div>
-              ))}
-            </div>
-
-            {/* Level 2 - Three pillars */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              {[
-                { icon: "🎯", title: "Dance & Fitness", desc: "Embodied Movement" },
-                { icon: "🧘", title: "Spirituality", desc: "Inner Peace" },
-                { icon: "🎭", title: "Acting & Theatre", desc: "Creative Expression" }
-              ].map((item, idx) => (
-                <Link 
-                  key={idx}
-                  href={idx === 0 ? "/dance-fitness" : idx === 1 ? "/spirituality" : "/acting-theatre"}
-                  className="group relative h-36 rounded-xl overflow-hidden cursor-pointer backdrop-blur-sm bg-white/5 border border-blue-300/20 transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-blue-200/50"
-                >
-                  {/* Gradient glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/15 via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col items-center justify-center text-center p-4 space-y-1">
-                    <div className="text-4xl">{item.icon}</div>
-                    <h3 className="text-base md:text-lg font-bold text-white">{item.title}</h3>
-                    <p className="text-xs text-white/70">{item.desc}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {/* Center Point - CTA */}
-            <div className="mt-8">
-              <Link
-                href="/register"
-                className="group relative px-10 py-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 hover:scale-110 inline-block"
+          {/* 4 PILLARS GRID */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {pillars.map((pillar, idx) => (
+              <div 
+                key={idx}
+                className="group relative h-64 rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur hover:border-white/30 transition-all duration-500 cursor-pointer hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30"
+                style={{
+                  animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`
+                }}
               >
-                <span className="relative flex items-center gap-2">
-                  Begin Your Journey
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </span>
-              </Link>
-            </div>
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                
+                {/* Content */}
+                <div className="relative h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
+                  <span className="text-6xl group-hover:scale-110 transition-transform duration-500">{pillar.icon}</span>
+                  <h3 className="text-xl md:text-2xl font-bold">{pillar.title}</h3>
+                  <div className="w-12 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
 
-        {/* BRAND TAGLINE AT BOTTOM */}
-        <div className="text-center space-y-3 mt-auto">
-          <p className="text-white/85 text-lg font-light">Conscious Wellness • Movement • Purpose</p>
-          <p className="text-cyan-300/70 text-sm">Transform Your Life Through Enlightened Consciousness</p>
-        </div>
-      </section>
-
-      {/* ADDITIONAL SECTIONS BELOW (Scrollable Content) */}
-      
-      {/* What is FLM? */}
-      <section className="py-20 md:py-24 px-4 max-w-6xl mx-auto w-full relative z-10">
-        <div className="text-center space-y-6 mb-12">
-          <p className="section-heading">WHAT IS FLM?</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Conscious Wellness Integrated
-          </h2>
-          <p className="text-lg text-white/75 max-w-2xl mx-auto">
-            Fitness Life Mantra brings together dance, spirituality, and creative expression into one premium wellness platform.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="section-card rounded-2xl p-8 space-y-4">
-            <h3 className="text-2xl font-semibold text-white">Science-Backed Movement</h3>
-            <ul className="space-y-3 text-white/80">
-              <li className="flex gap-3">
-                <span className="text-blue-400 mt-1">✓</span>
-                <span>Improves balance and coordination</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-blue-400 mt-1">✓</span>
-                <span>Enhances mental health and clarity</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-blue-400 mt-1">✓</span>
-                <span>Builds strength and confidence</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-blue-400 mt-1">✓</span>
-                <span>Helps you become your best self</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="section-card rounded-2xl p-8 space-y-4">
-            <h3 className="text-2xl font-semibold text-white">Founded by Dr. Reena Sharma</h3>
-            <p className="text-white/80 leading-relaxed">
-              A researcher, creative performer, and wellness visionary who integrates science, movement, theatre, and spirituality into a conscious living platform.
-            </p>
-            <p className="text-white/80 leading-relaxed">
-              Based in the USA, serving a global community of wellness seekers.
-            </p>
+          {/* CTA */}
+          <div className="pt-8">
             <Link 
-              href="/register" 
-              className="inline-block button-primary px-6 py-3 rounded-full text-sm font-semibold mt-4"
+              href="/register"
+              className="inline-block px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-full hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-110 transition-all duration-500"
             >
-              Join Us Today
+              Begin Your Journey →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-16 px-4 max-w-6xl mx-auto w-full text-center space-y-8">
-        <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Ready to Transform Your Life?
-          </h2>
-          <p className="text-lg text-white/75">
-            Join our conscious wellness community today
+      {/* ============ SECTION 2: FULL VIEWPORT - REGISTRATION ============ */}
+      <section className="h-screen w-full flex items-center justify-center relative px-4 snap-start bg-gradient-to-b from-black via-blue-900/10 to-black">
+        <div className="relative z-10 text-center space-y-12 max-w-2xl w-full">
+          <div>
+            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Register & Book</p>
+            <h2 className="text-5xl md:text-6xl font-black">Start Your Transformation</h2>
+          </div>
+
+          <p className="text-lg text-white/75 leading-relaxed">
+            Join our exclusive wellness community. Choose from Dance & Fitness, Performing Arts, Spirituality, or Community sessions.
           </p>
+
+          <div className="flex flex-col gap-4">
+            <Link 
+              href="/register"
+              className="px-8 py-4 bg-cyan-500 text-black font-bold rounded-full hover:bg-cyan-400 transition-colors duration-300 inline-block"
+            >
+              Register Now
+            </Link>
+            <Link 
+              href="/dance-fitness"
+              className="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors duration-300"
+            >
+              View Gallery
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      </section>
+
+      {/* ============ SECTION 3: FULL VIEWPORT - PHOTOS & VIDEOS ============ */}
+      <section className="h-screen w-full flex items-center justify-center relative px-4 snap-start">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black opacity-50" />
+        
+        <div className="relative z-10 text-center space-y-12 max-w-4xl w-full">
+          <div>
+            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Media Gallery</p>
+            <h2 className="text-5xl md:text-6xl font-black">See Our Community</h2>
+          </div>
+
+          <p className="text-lg text-white/75">
+            Inspiring moments from our sessions. Watch transformations happen in real-time.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link 
+              href="/dance-fitness"
+              className="group relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-pink-600/30 to-red-600/30 border border-white/20 backdrop-blur hover:border-white/50 transition-all duration-500"
+            >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="relative h-full flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <span className="text-5xl">🎥</span>
+                  <h3 className="text-2xl font-bold">Dance & Fitness Videos</h3>
+                </div>
+              </div>
+            </Link>
+
+            <Link 
+              href="/spirituality"
+              className="group relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border border-white/20 backdrop-blur hover:border-white/50 transition-all duration-500"
+            >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="relative h-full flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <span className="text-5xl">📸</span>
+                  <h3 className="text-2xl font-bold">Community Moments</h3>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ SECTION 4: FULL VIEWPORT - PRODUCTS ============ */}
+      <section className="h-screen w-full flex items-center justify-center relative px-4 snap-start bg-gradient-to-b from-black via-green-900/10 to-black">
+        <div className="relative z-10 text-center space-y-12 max-w-2xl w-full">
+          <div>
+            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Shop</p>
+            <h2 className="text-5xl md:text-6xl font-black">Premium Products</h2>
+          </div>
+
+          <p className="text-lg text-white/75 leading-relaxed">
+            Curated wellness products, apparel, and tools to enhance your practice.
+          </p>
+
           <Link 
-            href="/register" 
-            className="button-primary px-8 py-4 rounded-full text-base font-semibold"
+            href="/products"
+            className="inline-block px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-100 transition-colors duration-300"
           >
-            Register / Book Now
+            Shop Now →
           </Link>
-          <Link 
-            href="/dance-fitness" 
-            className="button-ghost px-8 py-4 rounded-full text-base font-semibold"
-          >
-            Explore Services
-          </Link>
+        </div>
+      </section>
+
+      {/* ============ SECTION 5: FOOTER CTA ============ */}
+      <section className="min-h-screen w-full flex items-center justify-center relative px-4 snap-start">
+        <div className="relative z-10 text-center space-y-12 max-w-3xl w-full">
+          <div>
+            <h2 className="text-6xl md:text-7xl font-black mb-6">Ready?</h2>
+            <p className="text-xl text-white/75 mb-8">
+              Join thousands transforming their lives through conscious wellness.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/register"
+              className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-full hover:scale-110 transition-transform duration-500"
+            >
+              Register Today
+            </Link>
+            <Link 
+              href="/about"
+              className="px-10 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors duration-500"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          <p className="text-white/50 text-sm">
+            © 2024 Fitness Life Mantra. Founded by Dr. Reena Sharma.<br />
+            Conscious. Intentional. Transformative.
+          </p>
         </div>
       </section>
     </main>

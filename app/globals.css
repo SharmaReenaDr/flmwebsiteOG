@@ -88,6 +88,95 @@ body {
 .animate-float-slow {
   animation: float-slow 8s ease-in-out infinite;
 }
+
+/* NEW ANIMATIONS FOR MODERN SCROLL DESIGN */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.6);
+  }
+}
+
+/* Utility classes */
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* BUTTON STYLES */
+.button-primary {
+  background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+  color: white;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(6, 182, 212, 0.4);
+}
+
+.button-ghost {
+  color: white;
+  border: 2px solid white;
+  background: transparent;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.button-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #06b6d4;
+  color: #06b6d4;
+}
+
 .bg-shell {
   min-height: 100vh;
   position: relative;
