@@ -143,6 +143,59 @@ body {
   }
 }
 
+@keyframes beam-sweep {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes beam-vertical {
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.beam-effect {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.8), transparent);
+  pointer-events: none;
+}
+
+.beam-horizontal {
+  height: 2px;
+  width: 200px;
+  animation: beam-sweep 3s ease-in-out infinite;
+}
+
+.beam-vertical {
+  width: 2px;
+  height: 200px;
+  background: linear-gradient(180deg, transparent, rgba(34, 211, 238, 0.8), transparent);
+  animation: beam-vertical 3s ease-in-out infinite;
+}
+
 /* Utility classes */
 .snap-start {
   scroll-snap-align: start;
