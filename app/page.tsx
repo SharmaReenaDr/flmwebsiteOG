@@ -14,11 +14,11 @@ export default function HomePage() {
           
           {/* Logo with Glow */}
           <RevealOnScroll>
-            <div className="flex flex-col items-center gap-6">
-              <div className="relative w-24 h-24 md:w-32 md:h-32">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-purple-500/20 rounded-full blur-2xl animate-pulse" />
-                <div className="relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-full backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl">
-                  <span className="text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-white via-white to-blue-200 bg-clip-text text-transparent">
+            <div className="flex flex-col items-center gap-6 group">
+              <div className="relative w-24 h-24 md:w-32 md:h-32 transition-transform duration-500 group-hover:scale-110">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/40 to-blue-500/30 rounded-full blur-2xl animate-pulse group-hover:from-cyan-300/60 group-hover:to-blue-400/50 transition-all duration-500" />
+                <div className="relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-full backdrop-blur-xl border border-cyan-300/30 flex items-center justify-center shadow-2xl group-hover:border-cyan-200/50 transition-all duration-500">
+                  <span className="text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
                     ✨
                   </span>
                 </div>
@@ -26,17 +26,17 @@ export default function HomePage() {
               
               {/* Main Title */}
               <div className="space-y-4">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-tight tracking-tight drop-shadow-lg">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-tight tracking-tight drop-shadow-2xl transition-all duration-500 group-hover:text-shadow-cyan group-hover:scale-105">
                   Fitness Life Mantra
                 </h1>
                 
                 {/* Subtitle */}
-                <p className="text-2xl md:text-3xl font-semibold text-transparent bg-gradient-to-r from-blue-300 via-purple-300 to-blue-200 bg-clip-text">
+                <p className="text-2xl md:text-3xl font-semibold text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-200 bg-clip-text transition-all duration-500 group-hover:from-cyan-200 group-hover:via-blue-200 group-hover:to-cyan-100">
                   Conscious Wellness Movement with Purpose
                 </p>
                 
                 {/* Supporting Line */}
-                <p className="text-lg md:text-xl text-white/85 font-light">
+                <p className="text-lg md:text-xl text-white/85 font-light transition-all duration-500 group-hover:text-cyan-100">
                   You are at the right place.
                 </p>
               </div>

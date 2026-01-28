@@ -79,49 +79,72 @@ body {
   z-index: 1;
 }
 
-/* Animated flowing water effect with image */
+/* Vibrant animated flowing water effect */
 .bg-water-layer {
   background: 
-    linear-gradient(180deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 20, 40, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%),
-    url('/waves-bg.svg');
-  background-size: cover, cover;
-  background-position: center center, center center;
-  animation: flowingWater 28s ease-in-out infinite;
-  opacity: 0.8;
+    radial-gradient(ellipse 1200px 800px at 30% 40%, rgba(0, 200, 255, 0.15), transparent 70%),
+    radial-gradient(ellipse 1000px 700px at 70% 60%, rgba(0, 150, 255, 0.12), transparent 70%),
+    radial-gradient(ellipse 1400px 900px at 50% 80%, rgba(0, 180, 255, 0.1), transparent 70%),
+    linear-gradient(180deg, 
+      rgba(0, 100, 200, 0.08) 0%, 
+      rgba(0, 80, 160, 0.12) 30%,
+      rgba(0, 60, 120, 0.15) 60%, 
+      rgba(0, 40, 80, 0.18) 100%
+    );
+  animation: flowingWater 20s ease-in-out infinite;
+  filter: blur(60px);
+  opacity: 0.6;
   z-index: 2;
+  transition: opacity 0.5s ease;
 }
 
-/* Enhanced water animation */
+.bg-water-layer:hover {
+  opacity: 0.85;
+  animation-duration: 15s;
+}
+
+/* Enhanced vibrant water animation */
 @keyframes flowingWater {
   0% {
-    transform: translateY(0px) translateX(0px) scale(1.05);
-    background-position: 0% 0%, 50% 50%;
+    transform: translateY(0px) translateX(0px) scale(1);
+    filter: blur(60px) hue-rotate(0deg);
   }
   25% {
-    transform: translateY(-30px) translateX(15px) scale(1.08);
-    background-position: 5% 5%, 48% 52%;
+    transform: translateY(-40px) translateX(20px) scale(1.05);
+    filter: blur(70px) hue-rotate(10deg);
   }
   50% {
-    transform: translateY(-50px) translateX(0px) scale(1.1);
-    background-position: 10% 10%, 50% 55%;
+    transform: translateY(-60px) translateX(0px) scale(1.08);
+    filter: blur(80px) hue-rotate(15deg);
   }
   75% {
-    transform: translateY(-30px) translateX(-15px) scale(1.08);
-    background-position: 5% 5%, 52% 52%;
+    transform: translateY(-40px) translateX(-20px) scale(1.05);
+    filter: blur(70px) hue-rotate(10deg);
   }
   100% {
-    transform: translateY(0px) translateX(0px) scale(1.05);
-    background-position: 0% 0%, 50% 50%;
+    transform: translateY(0px) translateX(0px) scale(1);
+    filter: blur(60px) hue-rotate(0deg);
   }
 }
 
 .bg-glow-layer {
   background:
-    radial-gradient(1000px 600px at 50% 20%, rgba(100, 150, 220, 0.06), transparent 70%),
-    radial-gradient(800px 500px at 80% 50%, rgba(255, 255, 255, 0.01), transparent 60%);
+    radial-gradient(1200px 700px at 50% 20%, rgba(0, 180, 255, 0.12), transparent 70%),
+    radial-gradient(1000px 600px at 20% 60%, rgba(0, 220, 255, 0.08), transparent 60%),
+    radial-gradient(900px 550px at 80% 70%, rgba(0, 160, 255, 0.1), transparent 65%);
   filter: blur(100px);
-  opacity: 0.4;
+  opacity: 0.5;
   z-index: 3;
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .bg-vignette {
