@@ -4,7 +4,6 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import BackgroundShell from "./components/BackgroundShell";
 import SmoothScroll from "./components/SmoothScroll";
-import SmoothScrollProvider from "./components/SmoothScrollProvider";
 
 export const metadata: Metadata = {
   title: "Fitness Life Mantra | Conscious Wellness Platform",
@@ -58,14 +57,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SmoothScrollProvider>
-          <BackgroundShell>
-            <SmoothScroll />
-            <Navigation />
-            {children}
-            <Footer />
-          </BackgroundShell>
-        </SmoothScrollProvider>
+        <BackgroundShell>
+          <SmoothScroll />
+          <Navigation />
+          {children}
+          <Footer />
+        </BackgroundShell>
       </body>
     </html>
   );
