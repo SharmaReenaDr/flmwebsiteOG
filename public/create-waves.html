@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { margin: 0; background: #001122; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+canvas.width = 1920;
+canvas.height = 1080;
+
+const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+gradient.addColorStop(0, '#003366');
+gradient.addColorStop(0.5, '#001a33');
+gradient.addColorStop(1, '#000a14');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+for(let i = 0; i < 50; i++) {
+  ctx.strokeStyle = `rgba(0, 200, 255, ${0.1 + Math.random() * 0.2})`;
+  ctx.lineWidth = 2 + Math.random() * 3;
+  ctx.beginPath();
+  let y = 300 + i * 15;
+  ctx.moveTo(0, y);
+  for(let x = 0; x < canvas.width; x += 20) {
+    ctx.lineTo(x, y + Math.sin(x * 0.02 + i * 0.5) * 30);
+  }
+  ctx.stroke();
+}
+
+setTimeout(() => {
+  const link = document.createElement('a');
+  link.download = 'waves-bg.jpg';
+  link.href = canvas.toDataURL('image/jpeg', 0.95);
+  link.click();
+}, 100);
+</script>
+</body>
+</html>

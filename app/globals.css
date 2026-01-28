@@ -79,38 +79,39 @@ body {
   z-index: 1;
 }
 
-/* Animated flowing water effect */
+/* Animated flowing water effect with image */
 .bg-water-layer {
   background: 
-    linear-gradient(180deg, rgba(30, 60, 120, 0.15) 0%, rgba(20, 40, 80, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%),
-    radial-gradient(ellipse 2000px 1200px at 50% -200px, rgba(60, 140, 220, 0.12), transparent 70%);
+    linear-gradient(180deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 20, 40, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%),
+    url('/waves-bg.svg');
+  background-size: cover, cover;
+  background-position: center center, center center;
   animation: flowingWater 28s ease-in-out infinite;
-  filter: blur(80px);
-  opacity: 0.35;
+  opacity: 0.8;
   z-index: 2;
 }
 
 /* Enhanced water animation */
 @keyframes flowingWater {
   0% {
-    transform: translateY(0px) translateX(0px);
-    background-position: 0% 0%, 0% 0%;
+    transform: translateY(0px) translateX(0px) scale(1.05);
+    background-position: 0% 0%, 50% 50%;
   }
   25% {
-    transform: translateY(-30px) translateX(15px);
-    background-position: 5% 5%, 3% 2%;
+    transform: translateY(-30px) translateX(15px) scale(1.08);
+    background-position: 5% 5%, 48% 52%;
   }
   50% {
-    transform: translateY(-50px) translateX(0px);
-    background-position: 10% 10%, 8% 5%;
+    transform: translateY(-50px) translateX(0px) scale(1.1);
+    background-position: 10% 10%, 50% 55%;
   }
   75% {
-    transform: translateY(-30px) translateX(-15px);
-    background-position: 5% 5%, 3% 2%;
+    transform: translateY(-30px) translateX(-15px) scale(1.08);
+    background-position: 5% 5%, 52% 52%;
   }
   100% {
-    transform: translateY(0px) translateX(0px);
-    background-position: 0% 0%, 0% 0%;
+    transform: translateY(0px) translateX(0px) scale(1.05);
+    background-position: 0% 0%, 50% 50%;
   }
 }
 
