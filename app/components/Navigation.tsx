@@ -10,57 +10,54 @@ export default function Navigation() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Dance & Fitness", href: "/dance-fitness" },
-    { label: "Acting & Theatre", href: "/acting-theatre" },
-    { label: "Spirituality", href: "/spirituality" },
-    { label: "Community & Events", href: "/community-events" },
-    { label: "Products", href: "/products" },
-    { label: "Register / Book", href: "/register" },
+    { label: "Services", href: "/#services" },
+    { label: "About", href: "/about" },
+    { label: "Events", href: "/community-events" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="nav-3d sticky top-0 z-50">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo - Left */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-100 transition-opacity duration-200 flex-shrink-0">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-cyan-500/20">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo + Brand Name - Left */}
+          <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/FLM logo.png"
               alt="Fitness Life Mantra"
               width={50}
               height={50}
               priority
-              className="w-12 h-12 rounded-lg shadow-[0_10px_32px_rgba(0,0,0,0.45)] ring-1 ring-white/10"
+              className="w-12 h-12 rounded-lg shadow-[0_10px_32px_rgba(6,182,212,0.3)] ring-1 ring-cyan-400/30 group-hover:ring-cyan-400/60 transition-all duration-300"
             />
-            <span className="hidden sm:block font-display text-lg font-semibold text-white drop-shadow">Fitness Life Mantra</span>
+            <div className="hidden sm:flex flex-col">
+              <span className="font-cursive text-2xl font-bold bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent animate-fadeInGlow" style={{ fontStyle: 'italic' }}>
+                Fitness Life Mantra
+              </span>
+              <span className="text-xs text-cyan-300/70 tracking-widest">WELLNESS. MOVEMENT. SPIRIT.</span>
+            </div>
           </Link>
 
           {/* Centered Desktop Nav Pills */}
-          <div className="hidden lg:flex items-center gap-1 flex-1 justify-center px-4">
-            {navItems.map((item) => {
-              const isActive =
-                pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`nav-pill${isActive ? " nav-pill-active" : ""}`}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+          <div className="hidden lg:flex items-center gap-2 flex-1 justify-center px-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-4 py-2 rounded-full text-sm font-medium text-white/80 hover:text-cyan-300 hover:bg-cyan-500/10 transition-all duration-300 border border-transparent hover:border-cyan-400/50"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           {/* CTA Button - Right */}
           <div className="hidden md:block flex-shrink-0">
             <Link
               href="/register"
-              className="button-primary px-6 py-2.5 rounded-full text-sm font-semibold shadow-[0_12px_34px_rgba(52,183,255,0.35)]"
+              className="px-8 py-2.5 rounded-full text-sm font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300"
             >
-              Register / Book
+              Register
             </Link>
           </div>
 
@@ -82,12 +79,12 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden pb-4 space-y-2">
+          <div className="lg:hidden pb-4 space-y-2 mt-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block nav-pill-mobile"
+                className="block px-4 py-2 rounded-lg text-white/80 hover:text-cyan-300 hover:bg-cyan-500/10 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
@@ -95,10 +92,10 @@ export default function Navigation() {
             ))}
             <Link
               href="/register"
-              className="block button-primary px-6 py-3 rounded-full text-sm font-semibold text-center mt-4"
+              className="block px-6 py-3 rounded-full text-sm font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-center mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Register / Book
+              Register
             </Link>
           </div>
         )}

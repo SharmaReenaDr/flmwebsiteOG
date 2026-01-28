@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Great+Vibes:wght@400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Cursive';
+    src: local('Great Vibes'), local('Cursive');
+  }
+}
 
 :root {
   color-scheme: dark;
@@ -143,6 +150,72 @@ body {
   }
 }
 
+@keyframes fadeInGlow {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(6, 182, 212, 0.4);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.4), 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+}
+
+@keyframes meteorShower {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rainDrop {
+  0% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes lightBeamVertical {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
 @keyframes beam-sweep {
   0% {
     left: -100%;
@@ -199,6 +272,26 @@ body {
 /* Utility classes */
 .snap-start {
   scroll-snap-align: start;
+}
+
+.animate-fadeInGlow {
+  animation: fadeInGlow 3s ease-in-out infinite;
+}
+
+.animate-meteorShower {
+  animation: meteorShower 4s ease-in-out infinite;
+}
+
+.animate-rainDrop {
+  animation: rainDrop 5s ease-in-out infinite;
+}
+
+.animate-lightBeam {
+  animation: lightBeamVertical 6s ease-in-out infinite;
+}
+
+.font-cursive {
+  font-family: 'Great Vibes', cursive;
 }
 
 /* BUTTON STYLES */
