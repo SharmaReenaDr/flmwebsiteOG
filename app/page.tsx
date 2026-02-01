@@ -16,9 +16,7 @@ const page = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
-          {/* Fallback color if video doesn't load */}
-          <source src="/hero-video.webm" type="video/webm" />
+          <source src="/B.MOV" type="video/mp4" />
         </video>
         
         {/* Dark Overlay */}
