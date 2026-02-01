@@ -6,13 +6,30 @@ import { useState } from 'react';
 const page = () => {
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="h-[80vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      {/* Hero Section with Video Background */}
+      <section className="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Fallback color if video doesn't load */}
+          <source src="/hero-video.webm" type="video/webm" />
+        </video>
+        
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <h1 className="text-6xl md:text-7xl font-bold font-playfair mb-6 leading-tight">
             Transform Your Life Through Movement
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+          <p className="text-xl md:text-2xl text-gray-100 mb-8 font-light">
             Dance, Fitness, Spirituality & Performing Arts
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
