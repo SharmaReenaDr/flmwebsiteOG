@@ -1,194 +1,247 @@
-import Link from "next/link";
+'use client';
 
-export default function HomePage() {
-  const services = [
-    { icon: "💃", title: "Dance & Fitness", desc: "Embodied Movement", color: "from-pink-500 to-red-500", href: "/dance-fitness" },
-    { icon: "🎭", title: "Performing Arts", desc: "Creative Expression", color: "from-purple-500 to-pink-500", href: "/acting-theatre" },
-    { icon: "🧘", title: "Spirituality", desc: "Inner Peace", color: "from-blue-500 to-cyan-500", href: "/spirituality" },
-    { icon: "🤝", title: "Wellness Events", desc: "Community Connection", color: "from-green-500 to-blue-500", href: "/community-events" }
-  ];
+import Link from 'next/link';
+import { useState } from 'react';
 
+const page = () => {
   return (
-    <main className="w-full bg-black text-white overflow-hidden">
-      {/* ============ CINEMATIC BACKGROUND LAYER ============ */}
-      <div className="fixed inset-0 z-0 overflow-hidden bg-black">
-        {/* Meteor Shower */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={`meteor-${i}`}
-              className="absolute w-1 h-24 bg-gradient-to-b from-cyan-400 to-transparent rounded-full"
-              style={{
-                top: `${Math.random() * 60}%`,
-                left: `${Math.random() * 100}%`,
-                animation: `meteorShower ${4 + Math.random() * 2}s ease-in-out infinite`,
-                animationDelay: `${i * 0.5}s`,
-                opacity: 0.6,
-                boxShadow: "0 0 20px rgba(34, 211, 238, 0.8)"
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Rain Drops */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={`rain-${i}`}
-              className="absolute w-0.5 h-8 bg-gradient-to-b from-cyan-200 to-transparent"
-              style={{
-                top: `${Math.random() * 80}%`,
-                left: `${Math.random() * 100}%`,
-                animation: `rainDrop ${3 + Math.random() * 2}s linear infinite`,
-                animationDelay: `${i * 0.15}s`,
-                opacity: 0.4
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Light Beams */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={`beam-${i}`}
-              className="absolute w-1"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: "-100%",
-                height: "300%",
-                background: "linear-gradient(180deg, transparent, rgba(34, 211, 238, 0.3), transparent)",
-                animation: `lightBeamVertical ${6 + i}s ease-in-out infinite`,
-                animationDelay: `${i * 1}s`
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Gradient Overlay - Subtle Depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-black to-black" />
-      </div>
-
-      {/* ============ HERO SECTION ============ */}
-      <section className="relative z-10 min-h-screen w-full flex flex-col items-center justify-center px-4 pt-24 pb-12">
-        <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Animated Brand Name */}
-          <div className="space-y-4">
-            <h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-cursive font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent animate-fadeInGlow"
-              style={{ fontStyle: 'italic', textShadow: '0 0 30px rgba(34, 211, 238, 0.5)' }}
-            >
-              Fitness Life Mantra
-            </h1>
-            <p className="text-2xl md:text-3xl text-cyan-200 font-light tracking-widest">
-              Move. Heal. Transform.
-            </p>
-          </div>
-
-          {/* Divider */}
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto" />
-
-          {/* Tagline */}
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            A fusion of fitness, wellness, spirituality, and creative expression.<br />
-            Awaken your consciousness. Transform your life.
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="h-[80vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h1 className="text-6xl md:text-7xl font-bold font-playfair mb-6 leading-tight">
+            Transform Your Life Through Movement
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+            Dance, Fitness, Spirituality & Performing Arts
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/register"
-              className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-full hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-110 transition-all duration-300"
+              href="/book"
+              className="bg-white text-black px-8 py-4 rounded font-semibold hover:bg-gray-200 transition text-lg"
             >
-              Register Now
+              Book Your Trial
             </Link>
             <Link
-              href="/#services"
-              className="px-10 py-4 border-2 border-cyan-400 text-cyan-300 font-bold rounded-full hover:bg-cyan-500/10 transition-all duration-300"
+              href="#programs"
+              className="border-2 border-white text-white px-8 py-4 rounded font-semibold hover:bg-white hover:text-black transition text-lg"
             >
-              Explore Services
+              Explore Programs
             </Link>
           </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </section>
 
-      {/* ============ SERVICES SECTION ============ */}
-      <section id="services" className="relative z-10 min-h-screen w-full flex items-center justify-center px-4 py-24">
-        <div className="max-w-6xl mx-auto w-full">
-          {/* Section Header */}
-          <div className="text-center space-y-6 mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-white">
-              Our Services
-            </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Discover what Fitness Life Mantra offers to elevate your wellness journey
-            </p>
+      {/* 4 Pillars Section */}
+      <section id="programs" className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-4 font-playfair">Our Programs</h2>
+          <p className="text-center text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
+            Choose from our four transformative pillars, each designed to enhance different aspects of your life.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Pillar 1: Dance & Fitness */}
+            <Link href="/dance-fitness" className="group">
+              <div className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition h-full">
+                <div className="text-5xl mb-4">💃</div>
+                <h3 className="text-3xl font-bold mb-3 font-playfair">Dance & Fitness</h3>
+                <p className="text-gray-600 mb-4 text-lg">
+                  From Bollywood to contemporary, discover the joy of movement. All ages, all levels welcome.
+                </p>
+                <p className="text-black font-semibold group-hover:translate-x-2 transition">
+                  Explore Classes →
+                </p>
+              </div>
+            </Link>
+
+            {/* Pillar 2: Performing Arts */}
+            <Link href="/performing-arts" className="group">
+              <div className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition h-full">
+                <div className="text-5xl mb-4">🎭</div>
+                <h3 className="text-3xl font-bold mb-3 font-playfair">Performing Arts</h3>
+                <p className="text-gray-600 mb-4 text-lg">
+                  MC hosting, acting workshops, theatre productions, and event management services.
+                </p>
+                <p className="text-black font-semibold group-hover:translate-x-2 transition">
+                  See Portfolio →
+                </p>
+              </div>
+            </Link>
+
+            {/* Pillar 3: Spirituality */}
+            <Link href="/spirituality" className="group">
+              <div className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition h-full">
+                <div className="text-5xl mb-4">🧘</div>
+                <h3 className="text-3xl font-bold mb-3 font-playfair">Spirituality & Wellness</h3>
+                <p className="text-gray-600 mb-4 text-lg">
+                  Bhajans, meditation, breathwork, and community gatherings for inner peace.
+                </p>
+                <p className="text-black font-semibold group-hover:translate-x-2 transition">
+                  Join Community →
+                </p>
+              </div>
+            </Link>
+
+            {/* Pillar 4: Corporate */}
+            <Link href="/corporate" className="group">
+              <div className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition h-full">
+                <div className="text-5xl mb-4">🎯</div>
+                <h3 className="text-3xl font-bold mb-3 font-playfair">Corporate & Events</h3>
+                <p className="text-gray-600 mb-4 text-lg">
+                  Team building, event management, and specialized experiences for organizations.
+                </p>
+                <p className="text-black font-semibold group-hover:translate-x-2 transition">
+                  Request Proposal →
+                </p>
+              </div>
+            </Link>
           </div>
+        </div>
+      </section>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, idx) => (
-              <Link
-                key={idx}
-                href={service.href}
-                className="group relative h-80 rounded-2xl overflow-hidden backdrop-blur-md bg-white/5 border border-cyan-400/20 hover:border-cyan-400/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30"
-              >
-                {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-15 transition-opacity duration-500`} />
+      {/* Why Choose FLM */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-16 font-playfair">Why Choose FLM</h2>
 
-                {/* Glass Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-black mb-4">500+</div>
+              <h3 className="text-xl font-semibold mb-3">Happy Students</h3>
+              <p className="text-gray-600">
+                Thousands of individuals have transformed their lives through our programs.
+              </p>
+            </div>
 
-                {/* Content */}
-                <div className="relative h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-                  <span className="text-6xl group-hover:scale-125 transition-transform duration-500">
-                    {service.icon}
-                  </span>
-                  <h3 className="text-2xl font-bold text-white">
-                    {service.title}
-                  </h3>
-                  <p className="text-cyan-200/80 text-sm">
-                    {service.desc}
-                  </p>
-                  <div className="w-12 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-black mb-4">15+</div>
+              <h3 className="text-xl font-semibold mb-3">Years Experience</h3>
+              <p className="text-gray-600">
+                Dr. Reena Sharma brings over 15 years of expertise in dance, performance, and wellness.
+              </p>
+            </div>
 
-                {/* Beam animations on card */}
-                <div className="absolute top-0 left-1/4 w-0.5 h-full bg-gradient-to-b from-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </Link>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-black mb-4">20+</div>
+              <h3 className="text-xl font-semibold mb-3">Programs</h3>
+              <p className="text-gray-600">
+                From beginner to advanced, we offer diverse programs for all interests and levels.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-16 font-playfair">Student Stories</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "FLM completely changed my perspective on fitness. It's not just about movement, it's about transformation.",
+                author: "Priya S.",
+                pillar: "Dance & Fitness",
+              },
+              {
+                quote: "The spirituality sessions brought me peace I've been searching for. Highly recommend!",
+                author: "Arjun M.",
+                pillar: "Spirituality",
+              },
+              {
+                quote: "Dr. Reena's performing arts coaching helped me land my first acting role. Grateful!",
+                author: "Deepak K.",
+                pillar: "Performing Arts",
+              },
+            ].map((testimonial, i) => (
+              <div key={i} className="bg-gray-50 p-8 rounded-lg">
+                <p className="text-gray-700 mb-4 text-lg italic">"{testimonial.quote}"</p>
+                <p className="font-semibold">{testimonial.author}</p>
+                <p className="text-gray-500 text-sm">{testimonial.pillar}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ CTA FOOTER SECTION ============ */}
-      <section className="relative z-10 w-full flex items-center justify-center px-4 py-24">
-        <div className="text-center space-y-8 max-w-3xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-bold text-white">
-            Ready to Transform?
-          </h2>
-          <p className="text-lg text-white/70">
-            Join our community of conscious wellness seekers and experience the power of integrated fitness, spirituality, and creativity.
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-black text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-5xl font-bold mb-6 font-playfair">Ready to Transform?</h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Join hundreds of students who've already started their journey. Your first session is just one click away.
           </p>
           <Link
-            href="/register"
-            className="inline-block px-12 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-full hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-110 transition-all duration-300"
+            href="/book"
+            className="bg-white text-black px-8 py-4 rounded font-semibold hover:bg-gray-200 transition inline-block text-lg"
           >
-            Begin Your Journey Today
+            Book Your Free Trial Today
           </Link>
-          <p className="text-white/50 text-sm pt-8">
-            © 2024 Fitness Life Mantra. Founded by Dr. Reena Sharma.<br />
-            Conscious. Intentional. Transformative.
-          </p>
         </div>
       </section>
-    </main>
+
+      {/* Upcoming Events */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-4 font-playfair">Upcoming Events</h2>
+          <p className="text-center text-gray-600 text-lg mb-12">Don't miss our latest workshops and community gatherings</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Bhangra Workshop", date: "Feb 15, 2026", time: "6-8 PM" },
+              { title: "Wellness Retreat", date: "Feb 22, 2026", time: "9 AM-5 PM" },
+              { title: "Corporate Team Building", date: "Mar 1, 2026", time: "10 AM-12 PM" },
+            ].map((event, i) => (
+              <div key={i} className="border border-gray-200 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
+                <p className="text-gray-600 mb-1">{event.date}</p>
+                <p className="text-gray-600 mb-4">{event.time}</p>
+                <Link href="/events" className="text-black font-semibold hover:opacity-70 transition">
+                  Learn More →
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/events"
+              className="border-2 border-black text-black px-8 py-4 rounded font-semibold hover:bg-black hover:text-white transition inline-block"
+            >
+              View Full Calendar
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4 font-playfair">Stay Updated</h2>
+          <p className="text-gray-600 mb-8 text-lg">
+            Get exclusive updates, class schedules, and wellness tips delivered to your inbox.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-2">
+            <input
+              type="email"
+              placeholder="Your email"
+              required
+              className="flex-1 px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-black"
+            />
+            <button
+              type="submit"
+              className="bg-black text-white px-6 py-3 rounded font-semibold hover:bg-gray-800 transition"
+            >
+              Subscribe
+            </button>
+          </form>
+          <p className="text-gray-500 text-sm mt-4">No spam, unsubscribe anytime.</p>
+        </div>
+      </section>
+    </div>
   );
-}
+};
+
+export default page;

@@ -1,176 +1,129 @@
-import Link from "next/link";
+'use client';
 
-export default function DanceFitnessPage() {
-  const danceStyles = [
-    { name: "Folk Dance", desc: "Traditional movements, cultural roots, grounding energy" },
-    { name: "Bollywood", desc: "Vibrant, rhythmic, expressive, joyful movement" },
-    { name: "Contemporary", desc: "Modern flow, freestyle expression, creative freedom" },
-    { name: "Freestyle", desc: "Your own rhythm, authentic movement, pure joy" },
-  ];
+import Link from 'next/link';
 
-  const benefits = [
-    {
-      title: "Improved Balance",
-      desc: "Develop core stability and proprioception through dynamic movement",
-      icon: "⚖️"
-    },
-    {
-      title: "Brain-Body Coordination",
-      desc: "Enhance neural pathways connecting mind and movement",
-      icon: "🧠"
-    },
-    {
-      title: "Mental Health",
-      desc: "Release endorphins, reduce stress, elevate mood",
-      icon: "💫"
-    },
-    {
-      title: "Strength & Confidence",
-      desc: "Build physical capability and emotional resilience",
-      icon: "💪"
-    },
-  ];
-
+export default function DanceFitness() {
   return (
-    <main className="min-h-screen w-full flex flex-col">
-      {/* HERO SECTION */}
-      <section className="py-20 md:py-28 px-4 text-center space-y-8 max-w-5xl mx-auto w-full">
-        <div className="space-y-6">
-          <div className="text-6xl md:text-7xl">💃</div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display text-white">
-            Dance & Fitness
-          </h1>
-          <p className="text-xl md:text-2xl text-white/80 font-light">
-            Science-backed movement that awakens your body and mind
+    <div className="pt-16">
+      {/* Hero */}
+      <section className="h-screen flex items-center justify-center bg-gray-900 text-white">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h1 className="text-6xl md:text-7xl font-playfair font-bold mb-6">Dance & Fitness</h1>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+            Move your body. Free your mind. Find your rhythm.
           </p>
+          <Link
+            href="/book"
+            className="bg-white text-black px-8 py-4 rounded font-semibold hover:bg-gray-200 transition inline-block text-lg"
+          >
+            Register for a Class
+          </Link>
         </div>
       </section>
 
-      {/* DANCE STYLES */}
-      <section className="py-16 md:py-20 px-4 max-w-6xl mx-auto w-full">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">Dance Styles</h2>
-          <p className="text-lg text-white/75">Choose your rhythm, find your expression</p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          {danceStyles.map((style) => (
-            <div 
-              key={style.name}
-              className="section-card rounded-2xl p-8 space-y-4 hover:shadow-2xl transition-all"
-            >
-              <h3 className="text-2xl font-bold text-white">{style.name}</h3>
-              <p className="text-white/80 leading-relaxed">{style.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Programs */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold font-playfair text-center mb-16">Our Programs</h2>
 
-      {/* SCIENCE-BACKED BENEFITS */}
-      <section className="py-16 md:py-20 px-4 max-w-6xl mx-auto w-full">
-        <div className="text-center space-y-4 mb-12">
-          <p className="section-heading">WHY DANCE & FITNESS?</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Become Your Best Version
-          </h2>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          {benefits.map((benefit, idx) => (
-            <div 
-              key={idx}
-              className="section-card rounded-2xl p-8 space-y-4 hover:shadow-2xl transition-all group"
-            >
-              <div className="text-5xl group-hover:scale-110 transition-transform">{benefit.icon}</div>
-              <h3 className="text-2xl font-bold text-white">{benefit.title}</h3>
-              <p className="text-white/80 leading-relaxed">{benefit.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WHAT YOU'LL LEARN */}
-      <section className="py-16 md:py-20 px-4 max-w-6xl mx-auto w-full">
-        <div className="section-card rounded-3xl p-8 md:p-12 space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
-              What You'll Experience
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'Bollywood Dance',
+                description: 'Learn iconic Bollywood moves with professional choreography in a fun, inclusive group setting.',
+                schedule: 'Mon, Wed, Fri 6-7 PM | Sat 4-5 PM',
+                level: 'Beginner to Advanced',
+              },
+              {
+                title: 'Bhangra Dance',
+                description: 'Experience the energy of Punjabi folk dance. Perfect for all ages and fitness levels.',
+                schedule: 'Tue, Thu 6-7 PM',
+                level: 'All Levels',
+              },
+              {
+                title: 'Freestyle & Hip Hop',
+                description: 'Express yourself through contemporary urban dance styles with professional instructors.',
+                schedule: 'Sat 5-6 PM',
+                level: 'Intermediate to Advanced',
+              },
+              {
+                title: 'Dance Fitness Cardio',
+                description: 'High-energy dance workouts designed for cardiovascular health and fun.',
+                schedule: 'Sun 5-6 PM',
+                level: 'Beginner to Intermediate',
+              },
+            ].map((program, i) => (
+              <div key={i} className="border border-gray-200 p-8 rounded-lg hover:shadow-lg transition">
+                <h3 className="text-2xl font-bold font-playfair mb-4">{program.title}</h3>
+                <p className="text-gray-600 mb-4">{program.description}</p>
+                <div className="space-y-2 text-sm text-gray-500 mb-6">
+                  <p><span className="font-semibold">Schedule:</span> {program.schedule}</p>
+                  <p><span className="font-semibold">Level:</span> {program.level}</p>
+                </div>
+                <Link href="/book" className="text-black font-semibold hover:opacity-70 transition">
+                  Register Now →
+                </Link>
+              </div>
+            ))}
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white">Movement & Workouts</h3>
-              <ul className="space-y-2 text-white/80">
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Functional fitness for all body types</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Dance-based cardio workouts</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Flexibility and mobility training</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Strength building through movement</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white">Personal Growth</h3>
-              <ul className="space-y-2 text-white/80">
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Build confidence in your body</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Release stress and tension</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Connect with your authentic self</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-orange-400">✓</span>
-                  <span>Join a supportive community</span>
-                </li>
-              </ul>
-            </div>
+        </div>
+      </section>
+
+      {/* Class Schedule */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold font-playfair text-center mb-16">Weekly Schedule</h2>
+
+          <div className="bg-white rounded-lg overflow-hidden shadow">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-black text-white">
+                  <th className="px-6 py-4 text-left font-semibold">Time</th>
+                  <th className="px-6 py-4 text-left font-semibold">Monday</th>
+                  <th className="px-6 py-4 text-left font-semibold">Tuesday</th>
+                  <th className="px-6 py-4 text-left font-semibold">Wednesday</th>
+                  <th className="px-6 py-4 text-left font-semibold">Thursday</th>
+                  <th className="px-6 py-4 text-left font-semibold">Friday</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="px-6 py-4 font-semibold">6:00 PM</td>
+                  <td className="px-6 py-4">Bollywood</td>
+                  <td className="px-6 py-4">Bhangra</td>
+                  <td className="px-6 py-4">Bollywood</td>
+                  <td className="px-6 py-4">Bhangra</td>
+                  <td className="px-6 py-4">Bollywood</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-semibold">7:00 PM</td>
+                  <td className="px-6 py-4">Hip Hop</td>
+                  <td className="px-6 py-4">Cardio</td>
+                  <td className="px-6 py-4">Hip Hop</td>
+                  <td className="px-6 py-4">Cardio</td>
+                  <td className="px-6 py-4">Hip Hop</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 max-w-6xl mx-auto w-full text-center space-y-8">
-        <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Ready to Move?
-          </h2>
-          <p className="text-lg text-white/75">
-            Join us for a dance & fitness session
+      <section className="py-20 px-4 bg-black text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-5xl font-bold font-playfair mb-6">Ready to Dance?</h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Join our community of dancers and fitness enthusiasts. Your first class is free!
           </p>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
-            href="/register" 
-            className="button-primary px-8 py-4 rounded-full text-base font-semibold"
+          <Link
+            href="/book"
+            className="bg-white text-black px-8 py-4 rounded font-semibold hover:bg-gray-200 transition inline-block text-lg"
           >
-            Register Now
-          </Link>
-          <Link 
-            href="/" 
-            className="button-ghost px-8 py-4 rounded-full text-base font-semibold"
-          >
-            Back to Home
+            Book Your Free Trial
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

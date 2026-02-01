@@ -37,6 +37,17 @@ export default function BackgroundShell({ children }: BackgroundShellProps) {
         "--tiltY": `${tilt.y}px`,
       } as CSSProperties}
     >
+      {/* Dance video background */}
+      <video
+        className="bg-video-layer"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/dance-video.mp4" type="video/mp4" />
+      </video>
+
       <div className="bg-layer bg-base-layer" />
       <div className="bg-layer bg-nataraj-layer" />
       <div className="bg-layer bg-water-layer" />
