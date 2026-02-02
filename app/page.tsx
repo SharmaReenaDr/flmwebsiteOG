@@ -69,6 +69,36 @@ const Page = () => {
         </div>
       </section>
 
+      {/* What is FLM? Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-5xl font-bold mb-8 font-playfair">What is Fitness Life Mantra?</h2>
+          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+            Fitness Life Mantra (FLM) is a movement for conscious wellness that honors the whole person: 
+            <strong> body, spirit, creativity, and purpose</strong>. Founded by Dr. Reena Sharma, FLM integrates 
+            dance, fitness, spirituality, and performing arts into a single ecosystem where people can move, heal, 
+            express, and grow.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div className="text-center">
+              <div className="text-4xl mb-4">🌟</div>
+              <h3 className="text-xl font-semibold mb-2">Holistic Approach</h3>
+              <p className="text-gray-600">Wellness that integrates body, mind, spirit, and creativity.</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-4">🤝</div>
+              <h3 className="text-xl font-semibold mb-2">Founder-Led</h3>
+              <p className="text-gray-600">Personal guidance from Dr. Reena with authenticity and care.</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-4">🌍</div>
+              <h3 className="text-xl font-semibold mb-2">Global Community</h3>
+              <p className="text-gray-600">Serving students in USA and India with local context.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4 Pillars Section */}
       <section id="programs" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
