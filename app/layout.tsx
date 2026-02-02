@@ -41,8 +41,13 @@ function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-black hover:opacity-80 transition">
-            FLM
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition" aria-label="Fitness Life Mantra">
+            <img
+              src="/logo.png"
+              alt="Fitness Life Mantra"
+              className="h-10 w-auto"
+            />
+            <span className="text-xl font-bold tracking-wider">FITNESS LIFE MANTRA</span>
           </Link>
 
           {/* Nav Links */}

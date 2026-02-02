@@ -1,13 +1,64 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+const heroSlides = [
+  { type: 'video', src: '/Dance%202.mov', mime: 'video/quicktime' },
+  { type: 'image', src: '/Dance%20to%20Smile_Fitness%20Classes.jpg', alt: 'Dance class' },
+  { type: 'image', src: '/Fitness.jpg', alt: 'Fitness session' },
+  { type: 'video', src: '/B.MOV', mime: 'video/quicktime' },
+];
 
 export default function DanceFitness() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (heroSlides.length < 2) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="h-screen flex items-center justify-center bg-gray-900 text-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        {/* Slideshow Background */}
+        {heroSlides.map((slide, index) => {
+          const isActive = index === currentSlide;
+          return slide.type === 'video' ? (
+            <video
+              key={slide.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={slide.src} type={slide.mime} />
+            </video>
+          ) : (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          );
+        })}
+
+        <div className="absolute inset-0 bg-black/45"></div>
+
+        <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <h1 className="text-6xl md:text-7xl font-playfair font-bold mb-6">Dance & Fitness</h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
             Move your body. Free your mind. Find your rhythm.

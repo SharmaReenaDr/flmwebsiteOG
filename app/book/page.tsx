@@ -42,7 +42,7 @@ export default function BookPage() {
     }, 3000);
   };
 
-  const programs = {
+  const programs: Record<string, string[]> = {
     'dance-fitness': ['Bollywood Dance', 'Bhangra Dance', 'Freestyle & Hip Hop', 'Dance Fitness Cardio'],
     'performing-arts': ['MC Hosting', 'Acting Workshop', 'Theatre Workshop', 'Event Management'],
     'spirituality': ['Bhajan Sessions', 'Meditation', 'Breathwork', 'Wellness Circle'],
@@ -160,7 +160,7 @@ export default function BookPage() {
                 placeholder="Any questions or special requests?"
                 value={formData.message}
                 onChange={handleChange}
-                rows="4"
+                rows={4}
                 className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-black"
               />
             </div>

@@ -1,22 +1,44 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const page = () => {
+const heroSlides = [
+  { type: 'video', src: '/B.MOV', mime: 'video/quicktime' },
+  { type: 'video', src: '/Dance%202.mov', mime: 'video/quicktime' },
+];
+
+const Page = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (heroSlides.length < 2) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const activeSlide = heroSlides[currentSlide];
+
   return (
     <div className="pt-16">
       {/* Hero Section with Video Background */}
       <section className="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
         {/* Video Background */}
         <video
+          key={activeSlide.src}
           autoPlay
           muted
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/B.MOV" type="video/mp4" />
+          <source src={activeSlide.src} type={activeSlide.mime} />
         </video>
         
         {/* Dark Overlay */}
@@ -259,4 +281,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
