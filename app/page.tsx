@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const heroSlides = [
   { type: 'video', src: '/B.MOV', mime: 'video/quicktime' },
-  { type: 'video', src: '/Dance%202.mov', mime: 'video/quicktime' },
+  { type: 'video', src: '/IMG_1535.mov', mime: 'video/quicktime' },
 ];
 
 const Page = () => {

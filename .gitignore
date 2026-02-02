@@ -9,8 +9,5 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-lock.yaml
 .vercel
-.pilot/config.yaml
-.pilot/*.db
-.pilot/*.log
 public/*.mov
 public/*.MOV

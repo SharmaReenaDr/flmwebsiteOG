@@ -43,7 +43,7 @@ function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition" aria-label="Fitness Life Mantra">
             <img
-              src="/logo.png"
+              src="/FLM logo.png"
               alt="Fitness Life Mantra"
               className="h-10 w-auto"
             />
