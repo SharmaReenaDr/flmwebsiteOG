@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { serviceCopy } from '../content/serviceCopy';
 
 const heroSlides = [
   { type: 'video', src: '/Dance%202.mov', mime: 'video/quicktime' },
@@ -11,6 +12,7 @@ const heroSlides = [
 ];
 
 export default function DanceFitness() {
+  const { danceFitness } = serviceCopy;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -59,9 +61,12 @@ export default function DanceFitness() {
         <div className="absolute inset-0 bg-black/45"></div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
-          <h1 className="text-6xl md:text-7xl font-playfair font-bold mb-6">Dance & Fitness</h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
-            Move your body. Free your mind. Find your rhythm.
+          <h1 className="text-6xl md:text-7xl font-playfair font-bold mb-4">{danceFitness.title}</h1>
+          <p className="text-lg md:text-xl italic text-white/90 mb-4">
+            “{danceFitness.quote}”
+          </p>
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light">
+            {danceFitness.intro}
           </p>
           <Link
             href="/book"
@@ -72,45 +77,16 @@ export default function DanceFitness() {
         </div>
       </section>
 
-      {/* Programs */}
+      {/* What We Offer */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold font-playfair text-center mb-16">Our Programs</h2>
+          <h2 className="text-5xl font-bold font-playfair text-center mb-16">What We Offer</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: 'Bollywood Dance',
-                description: 'Learn iconic Bollywood moves with professional choreography in a fun, inclusive group setting.',
-                schedule: 'Mon, Wed, Fri 6-7 PM | Sat 4-5 PM',
-                level: 'Beginner to Advanced',
-              },
-              {
-                title: 'Bhangra Dance',
-                description: 'Experience the energy of Punjabi folk dance. Perfect for all ages and fitness levels.',
-                schedule: 'Tue, Thu 6-7 PM',
-                level: 'All Levels',
-              },
-              {
-                title: 'Freestyle & Hip Hop',
-                description: 'Express yourself through contemporary urban dance styles with professional instructors.',
-                schedule: 'Sat 5-6 PM',
-                level: 'Intermediate to Advanced',
-              },
-              {
-                title: 'Dance Fitness Cardio',
-                description: 'High-energy dance workouts designed for cardiovascular health and fun.',
-                schedule: 'Sun 5-6 PM',
-                level: 'Beginner to Intermediate',
-              },
-            ].map((program, i) => (
-              <div key={i} className="border border-gray-200 p-8 rounded-lg hover:shadow-lg transition">
-                <h3 className="text-2xl font-bold font-playfair mb-4">{program.title}</h3>
-                <p className="text-gray-600 mb-4">{program.description}</p>
-                <div className="space-y-2 text-sm text-gray-500 mb-6">
-                  <p><span className="font-semibold">Schedule:</span> {program.schedule}</p>
-                  <p><span className="font-semibold">Level:</span> {program.level}</p>
-                </div>
+            {danceFitness.offers.map((offer) => (
+              <div key={offer.title} className="border border-gray-200 p-8 rounded-lg hover:shadow-lg transition">
+                <h3 className="text-2xl font-bold font-playfair mb-4">{offer.title}</h3>
+                <p className="text-gray-600 mb-6">{offer.description}</p>
                 <Link href="/book" className="text-black font-semibold hover:opacity-70 transition">
                   Register Now →
                 </Link>
@@ -120,59 +96,101 @@ export default function DanceFitness() {
         </div>
       </section>
 
-      {/* Class Schedule */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold font-playfair text-center mb-16">Weekly Schedule</h2>
+      {/* What You're Learning */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6">What You’re Learning (Beyond the Technique)</h2>
+          <ul className="space-y-3 text-lg text-gray-700 max-w-3xl mx-auto">
+            {danceFitness.learning.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="text-black mt-1">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-          <div className="bg-white rounded-lg overflow-hidden shadow">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-black text-white">
-                  <th className="px-6 py-4 text-left font-semibold">Time</th>
-                  <th className="px-6 py-4 text-left font-semibold">Monday</th>
-                  <th className="px-6 py-4 text-left font-semibold">Tuesday</th>
-                  <th className="px-6 py-4 text-left font-semibold">Wednesday</th>
-                  <th className="px-6 py-4 text-left font-semibold">Thursday</th>
-                  <th className="px-6 py-4 text-left font-semibold">Friday</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="px-6 py-4 font-semibold">6:00 PM</td>
-                  <td className="px-6 py-4">Bollywood</td>
-                  <td className="px-6 py-4">Bhangra</td>
-                  <td className="px-6 py-4">Bollywood</td>
-                  <td className="px-6 py-4">Bhangra</td>
-                  <td className="px-6 py-4">Bollywood</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-semibold">7:00 PM</td>
-                  <td className="px-6 py-4">Hip Hop</td>
-                  <td className="px-6 py-4">Cardio</td>
-                  <td className="px-6 py-4">Hip Hop</td>
-                  <td className="px-6 py-4">Cardio</td>
-                  <td className="px-6 py-4">Hip Hop</td>
-                </tr>
-              </tbody>
-            </table>
+      {/* Media Proof */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair text-center mb-12">Media Proof</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="border border-gray-200 rounded-2xl p-8 space-y-4">
+              <h3 className="text-2xl font-bold">Photo Gallery</h3>
+              <ul className="space-y-2 text-gray-600">
+                {danceFitness.media.photos.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="border border-gray-200 rounded-2xl p-8 space-y-4">
+              <h3 className="text-2xl font-bold">Video Gallery</h3>
+              <ul className="space-y-2 text-gray-600">
+                {danceFitness.media.videos.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 bg-black text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-5xl font-bold font-playfair mb-6">Ready to Dance?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join our community of dancers and fitness enthusiasts. Your first class is free!
-          </p>
-          <Link
-            href="/book"
-            className="bg-white text-black px-8 py-4 rounded font-semibold hover:bg-gray-200 transition inline-block text-lg"
-          >
-            Book Your Free Trial
-          </Link>
+      {/* Workshops & Packages */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair text-center mb-10">Workshops & Packages</h2>
+          <div className="bg-white rounded-2xl p-8 border border-gray-200">
+            <ul className="space-y-3 text-gray-700">
+              {danceFitness.workshops.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="text-black mt-1">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-gray-500">{danceFitness.packagesNote}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Register / Contact / Payment */}
+      <section className="py-16 px-4 bg-black text-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair">Ready to Begin?</h2>
+          <p className="text-lg text-gray-300">Book a class, join a workshop, or ask about private sessions.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/book"
+              className="bg-white text-black px-8 py-4 rounded font-semibold hover:bg-gray-200 transition inline-block text-lg"
+            >
+              Register Now
+            </Link>
+            <a
+              href="mailto:fitnesslifemantra@gmail.com?subject=Dance%20and%20Fitness%20Inquiry"
+              className="border border-white/60 px-8 py-4 rounded font-semibold hover:bg-white hover:text-black transition inline-block text-lg"
+            >
+              Contact to Know More
+            </a>
+          </div>
+          <div className="text-sm text-gray-300">
+            <span className="font-semibold">Payment Options:</span> {danceFitness.paymentOptions.join(" • ")}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair text-center mb-10">Testimonials</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {danceFitness.testimonials.map((testimonial) => (
+              <div key={testimonial.name} className="border border-gray-200 rounded-2xl p-6">
+                <p className="text-gray-700 mb-4">“{testimonial.quote}”</p>
+                <p className="text-sm font-semibold text-gray-900">{testimonial.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

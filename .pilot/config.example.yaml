@@ -1,0 +1,28 @@
+version: "1.0"
+
+gateway:
+  host: "127.0.0.1"
+  port: 9090
+
+adapters:
+  github:
+    enabled: true
+    token: "${GITHUB_TOKEN}"
+    repo: "SharmaReenaDr/FLM"
+    pilot_label: "pilot"
+    polling:
+      enabled: true
+      interval: 30s
+
+orchestrator:
+  execution:
+    mode: sequential
+    wait_for_merge: true
+    poll_interval: 30s
+    pr_timeout: 1h
+
+projects:
+  - name: "FLM"
+    path: "/Users/reenasharma/Downloads/Magic_Ai_AY"
+    navigator: true
+    default_branch: main

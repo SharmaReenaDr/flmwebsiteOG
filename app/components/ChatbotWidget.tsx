@@ -1,18 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 type Message = {
   id: string;
-  text: string | JSX.Element;
+  text: string | ReactNode;
   sender: "user" | "bot";
   timestamp: number;
 };
 
 type Intent = {
   keywords: string[];
-  response: string | JSX.Element;
+  response: string | ReactNode;
 };
 
 const INTENTS: Intent[] = [
@@ -141,7 +142,7 @@ export default function ChatbotWidget() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const findResponse = (query: string): string | JSX.Element => {
+  const findResponse = (query: string): string | ReactNode => {
     const lowerQuery = query.toLowerCase();
     
     for (const intent of INTENTS) {
