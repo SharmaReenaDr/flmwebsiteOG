@@ -93,10 +93,10 @@ const Page = () => {
             </Link>
 
             {/* Pillar 2: Performing Arts */}
-            <Link href="/performing-arts" className="group">
+            <Link href="/acting-theatre" className="group">
               <div className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition h-full">
                 <div className="text-5xl mb-4">🎭</div>
-                <h3 className="text-3xl font-bold mb-3 font-playfair">Performing Arts</h3>
+                <h3 className="text-3xl font-bold mb-3 font-playfair">Acting & Theatre</h3>
                 <p className="text-gray-600 mb-4 text-lg">
                   MC hosting, acting workshops, theatre productions, and event management services.
                 </p>
@@ -121,10 +121,10 @@ const Page = () => {
             </Link>
 
             {/* Pillar 4: Corporate */}
-            <Link href="/corporate" className="group">
+            <Link href="/community" className="group">
               <div className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition h-full">
                 <div className="text-5xl mb-4">🎯</div>
-                <h3 className="text-3xl font-bold mb-3 font-playfair">Corporate & Events</h3>
+                <h3 className="text-3xl font-bold mb-3 font-playfair">Community & Events</h3>
                 <p className="text-gray-600 mb-4 text-lg">
                   Team building, event management, and specialized experiences for organizations.
                 </p>
