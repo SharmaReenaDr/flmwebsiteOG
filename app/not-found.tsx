@@ -67,7 +67,7 @@ export default function NotFound() {
             ← Back to Home
           </Link>
           <Link
-            href="/book"
+            href="/register"
             className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition transform hover:scale-105"
           >
             Book a Class

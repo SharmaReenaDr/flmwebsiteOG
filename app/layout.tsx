@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import Footer from "./components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Fitness Life Mantra | Dance, Fitness, Spirituality & Events",
@@ -58,23 +59,23 @@ function Navigation() {
             <Link href="/dance-fitness" className="text-sm font-medium text-gray-700 hover:text-black transition">
               Dance & Fitness
             </Link>
-            <Link href="/performing-arts" className="text-sm font-medium text-gray-700 hover:text-black transition">
-              Performing Arts
+            <Link href="/acting-theatre" className="text-sm font-medium text-gray-700 hover:text-black transition">
+              Acting & Theatre
             </Link>
             <Link href="/spirituality" className="text-sm font-medium text-gray-700 hover:text-black transition">
               Spirituality
             </Link>
-            <Link href="/corporate" className="text-sm font-medium text-gray-700 hover:text-black transition">
-              Corporate
+            <Link href="/community" className="text-sm font-medium text-gray-700 hover:text-black transition">
+              Community
             </Link>
-            <Link href="/events" className="text-sm font-medium text-gray-700 hover:text-black transition">
-              Events
+            <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-black transition">
+              About
             </Link>
           </div>
 
           {/* CTA Button */}
           <Link
-            href="/book"
+            href="/register"
             className="bg-black text-white px-6 py-2 rounded text-sm font-medium hover:bg-gray-800 transition"
           >
             Book Now
@@ -82,65 +83,5 @@ function Navigation() {
         </div>
       </div>
     </nav>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-black text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Fitness Life Mantra</h3>
-            <p className="text-gray-400 text-sm">
-              Transform your body, mind, and soul through movement, spirituality, and community.
-            </p>
-          </div>
-
-          {/* Programs */}
-          <div>
-            <h4 className="font-semibold mb-4">Programs</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link href="/dance-fitness" className="hover:text-white transition">Dance & Fitness</Link></li>
-              <li><Link href="/performing-arts" className="hover:text-white transition">Performing Arts</Link></li>
-              <li><Link href="/spirituality" className="hover:text-white transition">Spirituality</Link></li>
-              <li><Link href="/corporate" className="hover:text-white transition">Corporate Events</Link></li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
-              <li><Link href="/faq" className="hover:text-white transition">FAQ</Link></li>
-              <li><Link href="/about" className="hover:text-white transition">About</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition">Blog</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition">Terms</Link></li>
-              <li><Link href="/cancellation" className="hover:text-white transition">Cancellation</Link></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2026 Fitness Life Mantra. All rights reserved.</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="https://instagram.com" className="text-gray-400 hover:text-white transition">Instagram</a>
-            <a href="https://youtube.com" className="text-gray-400 hover:text-white transition">YouTube</a>
-            <a href="https://facebook.com" className="text-gray-400 hover:text-white transition">Facebook</a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
