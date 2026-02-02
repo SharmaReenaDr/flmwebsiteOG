@@ -1,0 +1,10 @@
+# Ignore large video files for Vercel deployment
+public/videos/IMG_8897.mov
+public/videos/IMG_1588.mov
+
+# Ignore docs folder
+docs/
+
+# Ignore local config
+.DS_Store
+*.local
