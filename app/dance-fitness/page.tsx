@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import { serviceCopy } from '../content/serviceCopy';
 
 const heroSlides = [
-  { type: 'video', src: '/B.MOV', mime: 'video/quicktime' },
-  { type: 'image', src: '/Dance%20to%20Smile_Fitness%20Classes.jpg', alt: 'Dance class' },
-  { type: 'image', src: '/23.JPG', alt: 'Dance moment' },
-  { type: 'video', src: '/IMG_1535.mov', mime: 'video/quicktime' },
+  { type: 'video', src: '/videos/B.MOV', mime: 'video/quicktime' },
+  { type: 'image', src: '/images/Dance%20to%20Smile_Fitness%20Classes.jpg', alt: 'Dance class' },
+  { type: 'image', src: '/images/23.JPG', alt: 'Dance moment' },
+  { type: 'video', src: '/videos/IMG_1535.mov', mime: 'video/quicktime' },
 ];
 
 export default function DanceFitness() {

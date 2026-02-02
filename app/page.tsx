@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const heroSlides = [
-  { type: 'video', src: '/B.MOV', mime: 'video/quicktime' },
-  { type: 'video', src: '/IMG_1535.mov', mime: 'video/quicktime' },
+  { type: 'video', src: '/videos/B.MOV', mime: 'video/quicktime' },
+  { type: 'video', src: '/videos/IMG_1535.mov', mime: 'video/quicktime' },
 ];
 
 const Page = () => {
