@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import Footer from "./components/layout/Footer";
+import AIAssistant from "./components/ui/AIAssistant";
 
 export const metadata: Metadata = {
   title: "Fitness Life Mantra | Dance, Fitness, Spirituality & Events",
@@ -31,6 +32,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <AIAssistant />
       </body>
     </html>
   );
